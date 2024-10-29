@@ -17,10 +17,18 @@
     <div class="container">
         <body class="text-center">
             <form class="form-signin" method="POST"> {% csrf_token %}
-            <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-            <h1 class="h3 mb-3 font-weight-normal">Loguearse</h1>
+            <!-- <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> -->
+            <!-- <h1 class="h3 mb-3 font-weight-normal">Loguearse</h1> -->
+            {% if se_autentico%}
+                {% if salio_mal %}
+                    <div class="alert alert-danger" role="alert">
+                        Credenciales incorrectas!
+                    </div>
+                {% endif%}
+            {% endif%}
+
             <label for="inputEmail" class="sr-only">Nombre de usuario</label>
-            <input type="text" id="inputEmail" class="form-control" name="user" placeholder="Ingrese su usuario" required autofocus>
+            <input type="text" id="inputEmail" class="form-control" name="user" placeholder="Ingrese su usuario" value="{{username}}" required autofocus>
             <label for="inputPassword" class="sr-only">Contraseña</label>
             <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Ingrese su contraseña" required>
             <div class="checkbox mb-3">

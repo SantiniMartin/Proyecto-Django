@@ -1,12 +1,17 @@
 <nav>
-    <ul>
-        <li>
-            <a href="{% url 'inicio' %}">Inicio</a>
-        </li>
-        <li>
-            <a href="{% url 'login' %}">Login</a>
-        </li>
-    </ul>
+    <p>
+        <a href="{% url 'inicio' %}">Inicio</a>
+    </p>
+    <p>
+        <a href="{% url 'login' %}">Login</a>
+    </p>
+    {% if user.is_authenticated %}
+    <form action="{% url 'logout' %}" method="POST">{% csrf_token %}
+        <p><button type="submit">Cerrar Sesión</button></p>
+    </form>
+    {% else %}
+        <p>Inicia sesión haciendo click <a href="{% url 'login' %}">acá</a></p>
+    {% endif %}
 </nav>
 
 {% block content %}
