@@ -1,14 +1,15 @@
 from django.shortcuts import render, redirect
 from .models import Usuario
-from .forms import FormUsuario
+from .forms import FormUsuario, FormUser
 
 # Create your views here.
 def nuevo(request):
     
     template_name = 'usuarios/nuevo.html'
-    form = FormUsuario()
+    # form = FormUsuario()
+    form = FormUser()
     if request.method == "POST":
-        form = FormUsuario(request.POST)
+        form = FormUser(request.POST)
         if form.is_valid():
             print(form)
             form.save()
