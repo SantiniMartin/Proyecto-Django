@@ -9,6 +9,9 @@
     {% extends 'base/base.html' %}
     {% block content %}
     <h1>Soy la lista de usuarios:</h1>
+
+    <a href="{% url 'usuarios:nuevo' %}">Agregar un nuevo usuario</a>
+
     <table>
         <tr>
             <th>ID</th>
