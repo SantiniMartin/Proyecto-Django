@@ -8,6 +8,7 @@ def nuevo(request):
     template_name = 'usuarios/nuevo.html'
     # form = FormUsuario()
     form = FormUser()
+    message = '' 
     if request.method == "POST":
         form = FormUser(request.POST)
         if form.is_valid():
@@ -15,10 +16,11 @@ def nuevo(request):
             form.save()
             return redirect('usuarios:lista')
         else:
-            print('Incorrecto')
+            message = 'No se pudo guardar de forma correcta el formulario.'
         
     ctx = {
-        'form': form
+        'form': form,
+        'message': message
     }
     
     return render(request, template_name, ctx)
