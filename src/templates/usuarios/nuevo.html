@@ -11,11 +11,8 @@
     {% block content %}
     <h1>Nuevo usuario:</h1>
     <form action="" method="POST">{% csrf_token %}
-
-        <hr>
-        {{form.errors}}
-        <hr>
-
+        
+        {% include 'includes/forms_errors.html' %}
         {% include 'includes/forms.html' %}
         
         <button type="submit">Guardar</button>
