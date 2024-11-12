@@ -18,7 +18,7 @@ class Lista(ListView):
     template_name = 'pacientes/lista.html'
     model = Paciente
     context_object_name = 'pacientes'
-    paginate_by = 2
+    paginate_by = 3
     
     def get_queryset(self):
         return self.model.objects.all().order_by('nombre') #.filter(nombre='Antonela')
