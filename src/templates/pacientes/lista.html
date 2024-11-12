@@ -10,9 +10,19 @@
     {% extends 'base/base.html' %}
     {% block content %}
     <h1>Lista de pacientes</h1>
-
     <a href="{% url 'pacientes:nuevo' %}">Nuevo Paciente</a>
-
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+        </tr>
+        {% for paciente in pacientes %}
+            <tr>
+                <td>{{paciente.nombre}}</td>
+                <td>{{paciente.apellido}}</td>
+            </tr>
+        {% endfor %}
+    </table>
     {% endblock content %}
 </body>
 </html>

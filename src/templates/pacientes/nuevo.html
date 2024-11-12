@@ -9,7 +9,7 @@
 <body>
     {% extends 'base/base.html' %}
     {% block content %}
-    <h1>Nuevo paciente:</h1>
+    <h1>{{titulo}}:</h1>
     <form action="" method="POST">{% csrf_token %}
         
         {% include 'includes/forms_errors.html' %}
