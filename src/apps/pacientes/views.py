@@ -24,7 +24,7 @@ class Lista(ListView):
         return self.model.objects.all().order_by('nombre') #.filter(nombre='Antonela')
 
 
-class Nuevo(CreateView):
+class Nuevo(CreateView): 
     template_name = 'pacientes/nuevo.html'
     model = Paciente
     form_class = FormPaciente
